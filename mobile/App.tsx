@@ -6,9 +6,9 @@ import {
   useFonts,
 } from "@expo-google-fonts/inter";
 import { StatusBar } from "expo-status-bar";
-import { NativeBaseProvider } from "native-base";
 import { Loading } from "./src/components/Loading";
-import THEME from "./src/styles";
+import "./src/lib/dayjs";
+import { Home } from "./src/screens/Home";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,10 +18,14 @@ export default function App() {
     Inter_800ExtraBold,
   });
 
+  if (!fontsLoaded) {
+    return <Loading />;
+  }
+
   return (
-    <NativeBaseProvider theme={THEME}>
+    <>
       <StatusBar style="light" backgroundColor="transparent" translucent />
-      {!fontsLoaded ? <Loading /> : null}
-    </NativeBaseProvider>
+      <Home />
+    </>
   );
 }
