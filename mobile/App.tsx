@@ -8,7 +8,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { Loading } from "./src/components/Loading";
 import "./src/lib/dayjs";
-import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" backgroundColor="transparent" translucent />
-      <Home />
+      <Routes />
     </>
   );
 }
